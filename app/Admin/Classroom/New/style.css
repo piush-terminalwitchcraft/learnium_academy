@@ -1,0 +1,17 @@
+.new-classroom-body {
+    margin: 0 5%;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+}
+
+.new-classroom-body input {
+    margin: 0 20%;
+}
+
+.new-classroom-body div {
+    font-size: 1.6rem;
+    font-weight: 600;
+}

@@ -1,0 +1,241 @@
+ /* Button */
+ .button {
+    background-color: var(--foreground); /* Green */
+    border: none;
+    color: var(--background-2);
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  /* Button Danger */
+  .button-danger {background-color: #f44336;} /* Red */ 
+  
+  /* Button Warning */
+  .button-warning {background-color: #ff9800;} /* Orange */ 
+  
+  /* Button Info */
+  .button-info {background-color: #2196F3;} /* Blue */
+  
+  /* Button Success */
+  .button-success {background-color: #4CAF50;} /* Green */
+  
+  /* Button Primary */
+  .button-primary {background-color: #008CBA;} /* Blue */
+  
+  /* Button Secondary */
+  .button-secondary {background-color: #e7e7e7; color: black;} /* Gray */ 
+  
+  /* Button Dark */
+  .button-dark {background-color: #555555;} /* Black */ 
+  
+  /* Button Light */
+  .button-light {background-color: #f1f1f1;} /* White */ 
+  
+  /* Button Disabled */
+  .button-disabled {background-color: #cccccc;} /* Gray */ 
+  
+  /* Button Rounded */
+  .button-rounded {border-radius: 50%;}
+  
+  /* Button Full */
+  .button-full {width: 100%;}
+  
+  /* Button Block */
+  .button-block {display: block; width: 100%;}
+  
+  /* Button Large */
+  .button-large {padding: 10px 24px; font-size: 24px;}
+  
+  /* Button Medium */
+  .button-medium {padding: 8px 20px; font-size: 20px;}
+  
+  /* Button Small */
+  .button-small {padding: 5px 16px; font-size: 16px;}
+  
+  /* Button Extra Small */
+  .button-xsmall {padding: 3px 8px; font-size: 12px;}
+  
+  /* Button Hover */
+  .button:hover {opacity: 0.8;}
+  
+  /* Button Disabled */
+  .button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  
+ /* CustomInput */
+
+ .input {
+    
+    border: none;
+    border: 0.8px solid var(--foreground);
+    background: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+  
+  /* Input Danger */
+  .input-danger {border-color: #f44336;} /* Red */ 
+  
+  /* Input Warning */
+  .input-warning {border-color: #ff9800;} /* Orange */ 
+  
+  /* Input Info */
+  .input-info {border-color: #2196F3;} /* Blue */
+  
+  /* Input Success */
+  .input-success {border-color: #4CAF50;} /* Green */
+  
+  /* Input Primary */
+  .input-primary {background-color: #008CBA;} /* Blue */
+  
+  /* Input Secondary */
+  .input-secondary {background-color: #e7e7e7; color: black;} /* Gray */ 
+  
+  /* Input Dark */
+  .input-dark {background-color: #555555;} /* Black */ 
+  
+  /* Input Light */
+  .input-light {background-color: #f1f1f1;} /* White */ 
+  
+  /* Input Disabled */
+  .input-disabled {background-color: #cccccc;} /* Gray */ 
+  
+  /* Input Rounded */
+  .input-rounded {border-radius: 50%;}
+  
+  /* Input Full */
+  .input-full {width: 100%;}
+  
+  /* Input Block */
+  .input-block {display: block; width: 100%;}
+  
+  /* Input Large */
+  .input-large {padding: 10px 24px; font-size: 24px;}
+  
+  /* Input Medium */
+  .input-medium {padding: 8px 20px; font-size: 20px;}
+  
+  /* Input Small */
+  .input-small {padding: 5px 16px; font-size: 16px;}
+  
+  /* Input Extra Small */
+  .input-xsmall {padding: 3px 8px; font-size: 12px;}
+
+/* Card */
+
+.card {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 16px;
+   display: flex;
+   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+ /* Header */
+.header{
+  background-color: var(--foreground);
+   min-height: 80px;
+   color: var(--background);
+   align-items: center;
+   justify-content: space-between;
+   /* margin: 4px; */
+  background-image: radial-gradient(var(--foreground-2) 10%, transparent 11%);
+    /* radial-gradient(var(--background) 10%, transparent 11%); */
+  background-size: 20px 20px;
+  background-position: 0 0, 30px 30px;
+  background-repeat: repeat;
+   padding: 12px;
+ }
+
+.header-list li{
+   margin: 8px;
+   padding: 8px;
+   border: 2px solid var(--background);
+   border-radius: 8px;
+   color: var(--background);
+   cursor: pointer;
+   background-color: var(--foreground);
+ }
+
+/* Input tags */
+
+.input-tag {
+  background: white;
+  border: 1px solid #d6d6d6;
+  border-radius: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px 5px 0;
+}
+
+.input-tag input {
+  border: none;
+  width: 100%;
+}
+
+.input-tag__tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.input-tag__tags li {
+  align-items: center;
+  background: #85A3BF;
+  border-radius: 2px;
+  color: white;
+  display: flex;
+  font-weight: 300;
+  list-style: none;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+}
+
+.input-tag__tags li button {
+  align-items: center;
+  appearance: none;
+  background: #333333;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 12px;
+  height: 15px;
+  justify-content: center;
+  line-height: 0;
+  margin-left: 8px;
+  padding: 0;
+  transform: rotate(45deg);
+  width: 15px;
+}
+
+.input-tag__tags li.input-tag__tags__input {
+  background: none;
+  flex-grow: 1;
+  padding: 0;
+}

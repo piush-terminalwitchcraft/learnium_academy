@@ -1,0 +1,9 @@
+ main {
+   width: 100vw;
+   height: 100vh;
+   overflow-x: auto;
+   color: var(--foreground);
+   background: 
+     linear-gradient( to bottom, transparent, var(--background-2))
+     white;
+ }

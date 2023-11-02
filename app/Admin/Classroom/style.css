@@ -1,0 +1,68 @@
+.classroom-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.classroom-header input {
+    flex: 5;
+    margin: 8px;
+}
+
+.classroom-header div {
+    flex: 1;
+    margin: 8px;
+}
+
+.classroom-list {
+    margin-top: 20px;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-height: 70vh;
+    width: fit-content;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    overflow-x: scroll;
+}
+
+.classroom-list-item {
+    cursor: pointer;
+    width: 256px;
+    height: 256px;
+    padding: 8px;
+    margin: 8px;
+    color: white;
+    border: 1px solid #ccc;
+    box-shadow:  4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.4);
+    border-radius: 12px;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.classroom-list-item .top {
+    text-align: center;
+
+}
+.classroom-list-item .heading{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.classroom-list-item .year{
+
+}
+
+.classroom-list-item .description {
+    text-align: center;
+}
