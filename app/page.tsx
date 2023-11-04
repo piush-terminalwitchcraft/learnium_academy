@@ -26,7 +26,7 @@ export default function Home() {
         <source src="/video.mp4" type="video/mp4" />
       </video>
       <div className='main-subheader'>Courses</div>
-      <div className=''>JEE Courses</div>
+      <div className='slid'>JEE Courses</div>
     </main>
   )
 }
