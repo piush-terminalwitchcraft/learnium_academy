@@ -182,16 +182,17 @@
 
 .input-tag {
   background: white;
-  border: 1px solid #d6d6d6;
-  border-radius: 2px;
+  border: 0.8px solid var(--foreground);
+  border-radius: 8px;
   display: flex;
   flex-wrap: wrap;
-  padding: 5px 5px 0;
+  padding: 5px 20px;
 }
 
 .input-tag input {
   border: none;
   width: 100%;
+  color: var(--foreground);
 }
 
 .input-tag__tags {
@@ -204,7 +205,7 @@
 
 .input-tag__tags li {
   align-items: center;
-  background: #85A3BF;
+  background: var(--background);
   border-radius: 2px;
   color: white;
   display: flex;
@@ -218,13 +219,13 @@
 .input-tag__tags li button {
   align-items: center;
   appearance: none;
-  background: #333333;
+  background: var(--background-2);
   border: none;
   border-radius: 50%;
-  color: white;
+  color: var(--foreground);
   cursor: pointer;
   display: inline-flex;
-  font-size: 12px;
+  /* font-size: ; */
   height: 15px;
   justify-content: center;
   line-height: 0;

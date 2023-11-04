@@ -20,13 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
+        
         <Main>
+        <Header />
           <div>
             {children}
         </div>
-        </Main>
         <Footer />
+        </Main>
       </body>
     </html>
   )

@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import './style.css';
 
 const InputTag: React.FC = () => {
-  const [tags, setTags] = useState<string[]>(['Tags', 'Input']);
+  const [tags, setTags] = useState<string[]>(['ahadqureshi@gmail.com']);
   const tagInput = useRef<HTMLInputElement>(null);
 
   const removeTag = (i: number) => {

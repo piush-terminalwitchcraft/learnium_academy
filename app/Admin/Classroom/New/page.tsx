@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import { CustomInput, TagInput } from '@/Components/Elements'
+import { Button, CustomInput, TagInput } from '@/Components/Elements'
 
 export default function () {
   return (
@@ -11,9 +11,11 @@ export default function () {
         <CustomInput placeholder='Academic year' type='string'/>
         <div>Enter course</div>
         <CustomInput placeholder='Course' type='string'/>
+        <div>Enter email/ roll number of students enrolled</div>
         <TagInput/>
-        <CustomInput placeholder='No of students' type='number'/>
-        <CustomInput placeholder='No of exams' type='number'/>
+        <Button>Submit</Button>
+        {/* <CustomInput placeholder='No of students' type='number'/> */}
+        {/* <CustomInput placeholder='No of exams' type='number'/> */}
 
     </div>
   )

@@ -7,7 +7,7 @@
     gap: 24px;
 }
 
-.new-classroom-body input {
+.new-classroom-body input, .new-classroom-body .input-tag, .new-classroom-body .button {
     margin: 0 20%;
 }
 

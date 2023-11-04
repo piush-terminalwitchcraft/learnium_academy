@@ -13,6 +13,7 @@ export default function Header() {
         <li>Courses</li>
         <li>Articles</li>
         <li>Contact us</li>
+        <li>Login</li>
 
       </ul>
     </div>

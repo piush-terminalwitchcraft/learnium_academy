@@ -1,0 +1,73 @@
+.main-header {
+    font-size: 3.4rem;
+    font-weight: bold;
+
+}
+
+.main-subheader {
+    font-size: 2.4rem;
+    text-align: center;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+    /* font-weight: bold; */
+}
+
+.main-header-description {
+    font-size: 1.6rem;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.main-counselling-form {
+    margin-top: 2.2rem;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    gap: 1rem;
+}
+
+.underlined {
+    position: relative;
+    margin-right: 1rem;
+}
+
+.underlined:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    height: 7px;
+    width: 100%;
+    border: solid 6px var(--foreground-2);
+    border-color: var(--foreground-2) transparent transparent transparent;
+    border-radius: 50%;
+}
+
+.slideanim {
+    visibility: hidden;
+    visibility: visible\9;
+    /*For old IE browsers IE6-8 */
+}
+
+.slideanim.slide {
+    visibility: visible;
+    animation: slide 1s;
+}
+
+.slideanim::after {
+    /* useful when its child elements are float:left; */
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
