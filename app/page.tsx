@@ -19,7 +19,7 @@ export default function Home() {
             <Button>{'>'}</Button>
           </div>
         </div>
-        <Image src={'/teacher.png'} height={300} width={300} alt='logo-image' />
+        <Image src={'/teachwwwwwwwwwwwwwwwer.png'} height={300} width={300} alt='logo-image' />
       </div>
       <div className='main-subheader'>About our team </div>
       <video autoPlay={true} muted>
