@@ -5,7 +5,7 @@
 }
 
 .main-subheader {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
     text-align: center;
     margin-top: 1.6rem;
     margin-bottom: 1.6rem;
@@ -19,15 +19,68 @@
 }
 
 .main-counselling-form {
-    margin-top: 2.2rem;
-    margin-bottom: 2rem;
-    font-size: 1.6rem;
-    gap: 1rem;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    font-size: 2rem;
+    gap: 20px;
 }
+
+.main-course {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    /* position: relative; */
+}
+
+.main-course .content {
+    text-align: center;
+    width: 60%;
+    background-color: var(--background);
+    border: 0.8px solid var(--foreground);
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    margin: 12px 0px;
+}
+
+.content .title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+}
+
+.content .item {
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 32px 0;
+}
+
+.content .description, .description {
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-style: italic;
+    margin: 32px 0;
+    padding: 0 12px;
+}
+
+.main-lsat-form {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    font-size: 2rem;
+    gap: 20px;
+    text-align: center;
+}
+
+.right {
+    justify-content: flex-start;
+}
+
+
 
 .underlined {
     position: relative;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
 }
 
 .underlined:after {
@@ -42,32 +95,28 @@
     border-radius: 50%;
 }
 
-.slideanim {
-    visibility: hidden;
-    visibility: visible\9;
-    /*For old IE browsers IE6-8 */
-}
-
-.slideanim.slide {
-    visibility: visible;
-    animation: slide 1s;
-}
-
-.slideanim::after {
-    /* useful when its child elements are float:left; */
-    content: "";
-    display: table;
-    clear: both;
-}
-
-@keyframes slide {
-    0% {
-        opacity: 0;
-        transform: translateY(50%);
+@media screen and (max-width: 600px) {
+    .main-header {
+        font-size: 1.8rem;
     }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+    #main-header-mobile {
+        flex-direction: column-reverse;
+    }
+
+    .main-subheader {
+        font-size: 1.8rem;
+    }
+
+    .main-header-description {
+        font-size: 1.4rem;
+    }
+
+    .main-counselling-form {
+        font-size: 1.4rem;
+    }
+
+    .main-course .content {
+        width: 100%;
     }
 }

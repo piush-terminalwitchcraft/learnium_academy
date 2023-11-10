@@ -28,8 +28,12 @@ body{
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  
 }
 
+*::-webkit-scrollbar {
+  width: 0px;
+}
 input:focus-visible {
   outline: var(--foreground-2) ;
 }
