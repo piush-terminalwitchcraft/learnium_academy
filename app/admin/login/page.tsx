@@ -4,7 +4,7 @@ import React from 'react'
 import "./style.css"
 import { useRouter } from 'next/navigation'
 
-export default function page() {
+export default function Page() {
 
   const router = useRouter();
 
@@ -24,9 +24,8 @@ export default function page() {
         />
 
         <Button 
-          children={"Log in"}
           onClick={handleLogin}
-        />
+        >Log in</Button>
 
       </div>
     </div>

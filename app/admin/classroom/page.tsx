@@ -7,7 +7,7 @@ import randomColor from 'randomcolor';
 import { randomInt } from 'crypto';
 import { useRouter } from 'next/navigation';
 
-export default function page() {
+export default function Page() {
   const router = useRouter();
   return (
     <div>
@@ -40,6 +40,7 @@ export default function page() {
             const backgroundColor = `linear-gradient(${color1} 0%, ${color2} 100%)`;
             return <div 
               style={{backgroundImage: backgroundColor}}
+              onClick={()=>{router.push(`/admin/classroom/${batch.batchID}`)}}
             className='classroom-list-item' key={batch.batchID}>
               <div className='top'>
               <div className='heading'>

@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { Articles } from '@/Utils/Types';
 
 
-export default function page() {
+export default function Page() {
 
 
   const [page, setPage] = useState(ADMIN_ARTICLES_FEATURES[0].name); 
@@ -39,7 +39,7 @@ export default function page() {
               <CustomInput type='string' placeholder='Search articles' />
               {
                 exampleArticles.map((article: Articles)=>{
-                  return <div className='article-search-item'>
+                  return <div className='article-search-item' key={article.articleID}>
                     <div className='lsp'>
                       {article.title}
                     </div>
@@ -68,7 +68,7 @@ export default function page() {
         {
           ADMIN_ARTICLES_FEATURES.map((feature: {name: string, image: string}) => {
             return(
-              <div className='flex articles-sidebar-items'>
+              <div className='flex articles-sidebar-items' key={feature.name}>
                 <Image src={feature.image} width={48} height={48} alt={feature.name + "logo"}/>
                 <div key={feature.name} 
                   onClick={()=>{

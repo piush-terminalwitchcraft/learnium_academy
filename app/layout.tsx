@@ -4,6 +4,7 @@ import './globals.css'
 import Main from '@/Components/Layout/Main'
 import Header from '@/Components/Elements/Header'
 import Footer from '@/Components/Elements/Footer'
+import { AppProvider } from './Redux/AppProvider'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -15,19 +16,20 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
-}) {
+    children: React.ReactNode
+  }) {
   return (
     <html lang="en">
       <body>
-        
-        <Main>
-        <Header />
-          <div>
-            {children}
-        </div>
-        <Footer />
-        </Main>
+        <AppProvider> 
+          <Main>
+            <Header />
+            <div>
+              {children}
+            </div>
+            <Footer />
+          </Main>
+        </AppProvider>
       </body>
     </html>
   )

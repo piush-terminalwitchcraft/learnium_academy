@@ -2,7 +2,7 @@ import React from 'react'
 import './style.css'
 import { Button, CustomInput, TagInput } from '@/Components/Elements'
 
-export default function () {
+export default function Page() {
   return (
     <div className='new-classroom-body'>
         <div>Enter batch name</div>

@@ -6,7 +6,6 @@ import { Button, CustomInput } from '@/Components/Elements'
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col justify-between p-12">
-      <script src="float-panel.js"></script>
       <div className='flex justify-between' id='main-header-mobile'>
         <div>
           <div className='main-header'>

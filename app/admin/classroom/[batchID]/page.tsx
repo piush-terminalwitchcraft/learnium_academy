@@ -1,9 +1,11 @@
-
 import React from 'react'
+import "./style.css"
 
 function Page() {
   return (
-    <div>Profile stuff</div>
+    <div>
+      <div></div>
+    </div>
   )
 }
 
