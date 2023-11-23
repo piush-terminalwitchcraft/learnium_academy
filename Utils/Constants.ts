@@ -4,22 +4,22 @@ export const ADMIN_FEATURES: AdminFeature[] = [
   {
     "name":"Articles", 
     "image": '/articles.png',
-    "link": '/Admin/Articles'
+    "link": '/admin/articles'
   }, 
   {
     "name":"Classroom", 
     "image": '/classroom.png',
-    "link": '/Admin/Classroom'
+    "link": '/admin/classroom'
   }, 
   {
     "name":"Profile",
     "image": '/profile_photo.png',
-    "link": '/Admin/Profle'
+    "link": '/admin/profile'
   }, 
   {
     "name":"Access",
     "image": '/admin_access.png',
-    "link": '/Admin/Login'
+    "link": '/admin/login'
   },
 ]
 

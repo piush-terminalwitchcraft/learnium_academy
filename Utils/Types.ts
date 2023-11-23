@@ -6,15 +6,31 @@ export interface Admin {
   adminProfilePicture: string
 }
 
+export interface Category {
+  categoryID: string, 
+  categoryName: string
+}
+
+export interface Metatag {
+  metatagID: string,
+  metatagName: string
+}
+
+export interface Document {
+  documentID: string, 
+  documentName: string, 
+  documentPath: string 
+}
+
 export interface Articles { 
   articleID: string,
   title: string,
   content: string,
-  category: string[],
-  metatags: string[],
   date: string,
   createdBy: string,
-  documents: string[],
+  category: Category[],
+  metatags: Metatag[] | null,
+  documents: Document[] | null,
 }
 
 export interface Batch {

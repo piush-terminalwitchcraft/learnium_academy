@@ -5,6 +5,8 @@ import Main from '@/Components/Layout/Main'
 import Header from '@/Components/Elements/Header'
 import Footer from '@/Components/Elements/Footer'
 import { AppProvider } from './Redux/AppProvider'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +27,7 @@ export default function RootLayout({
           <Main>
             <Header />
             <div>
+              <ToastContainer/>
               {children}
             </div>
             <Footer />

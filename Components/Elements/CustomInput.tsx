@@ -2,27 +2,29 @@ import React, { ReactNode, ChangeEvent } from 'react';
 import './style.css';
 
 interface InputProps {
-    type: string;
-    value?: string;
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-    placeholder?: string;
-    className?: string;
-    style?: React.CSSProperties;
+  type: string;
+  value?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  onKeyDown?: (event: any) => void;
 }
 
 const Input = (props: InputProps) => {
-    const { type, value, onChange, placeholder, className, style } = props;
+  const { type, value, onChange, placeholder, className, style, onKeyDown } = props;
 
-    return (
-        <input
-            type={type}
-            value={value}
-            onChange={onChange}
-            placeholder={placeholder}
-            className={`input ${className}`}
-            style={style}
-        />
-    );
+  return (
+    <input
+      type={type}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      className={`input ${className}`}
+      style={style}
+      onKeyDown={onKeyDown}
+    />
+  );
 };
 
 export default Input;

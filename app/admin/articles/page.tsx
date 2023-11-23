@@ -1,22 +1,26 @@
 "use client"
 import { CustomInput, Markdown } from '@/Components/Elements';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./style.css"
 import { ADMIN_ARTICLES_FEATURES } from '@/Utils/Constants';
 import Image from 'next/image';
 import { Articles } from '@/Utils/Types';
+import { useDispatch } from 'react-redux';
+import { adminGetArticle, adminSearchArticle } from '@/app/Redux/slice';
 
 
 export default function Page() {
 
-
   const [page, setPage] = useState(ADMIN_ARTICLES_FEATURES[0].name); 
+  const [articleID, setArticleID] = useState<string | null>(null);
+  const dispatch = useDispatch<any>();
 
   function handleSidebarClick(action: string){
     if(ADMIN_ARTICLES_FEATURES[0].name === action){
       setPage(ADMIN_ARTICLES_FEATURES[0].name); 
     }
     else if( ADMIN_ARTICLES_FEATURES[1].name === action){
+      setArticleID(null)
       setPage(ADMIN_ARTICLES_FEATURES[1].name);
     } else {
       setPage(ADMIN_ARTICLES_FEATURES[0].name);
@@ -26,41 +30,67 @@ export default function Page() {
 
   const SearchAndEdit = () => {
 
-    const [editMode, setEditMode] = useState(false);  
+    const [articles, setArticles] = useState<Articles[]>([]);
+    const [query, setQuery] = useState<string>('');
+
+    async function fetchArticles() {
+      const res = await dispatch(adminSearchArticle(query)); 
+      setArticles(res.payload.data);
+    }
+
+    useEffect(()=>{
+      fetchArticles();
+    },[])
     return (
       <div className='articles-body'>
+        <CustomInput type='string' placeholder='Search articles' value={`${query}`} 
+          onChange={(e)=>setQuery(e.target.value)} 
+          onKeyDown={(e)=>{
+            if(e.key === 'Enter'){ fetchArticles(); }
+          }} 
+        />
         {
-          editMode ? 
-            <div>
-              Edit mode baby 
-            </div>
-            :
-            <div> 
-              <CustomInput type='string' placeholder='Search articles' />
-              {
-                exampleArticles.map((article: Articles)=>{
-                  return <div className='article-search-item' key={article.articleID}>
-                    <div className='lsp'>
-                      {article.title}
-                    </div>
-                    <div className='text'>
-                      {article.date}
-                    </div>
-                    <div className='text'>
-                      {article.createdBy}
-                    </div>
+          articles.map((article: Articles)=>{
+            return <div className='article-search-item' key={article.articleID}
+              onClick={()=>{
+                setArticleID(article.articleID);
+                setPage(ADMIN_ARTICLES_FEATURES[1].name)
+              }}>
+              <div className='lsp'>
+                {article.title}
+              </div>
+              <div className='text'>
+                {article.date}
+              </div>
+              <div className='text'>
+                {article.createdBy}
+              </div>
 
-                  </div>
-                })
-              }
             </div>
+          })
         }
       </div>
     )
   }
 
-  const NewArticle = () => {
+  const ArticleEditor = () => {
+    const [article, setArticle] = useState<Articles>();
 
+    async function editArticle() {
+      const res = await dispatch(adminGetArticle(articleID));
+      setArticle(res.payload.data);
+    }
+
+
+    useEffect(()=>{
+      if(articleID !== null) {
+        editArticle()
+      }
+    },[])
+
+    return (
+      <Markdown markdownText={article? article.articleID : ""} />
+    )
   }
   const Sidebar = () => {
     return (
@@ -87,15 +117,15 @@ export default function Page() {
   }
 
   const Body = () => {
-    console.log(page)
+    // console.log(page)
     if( ADMIN_ARTICLES_FEATURES[0].name === page ){
       return <SearchAndEdit />
     }
     else {
-     return(<div className='articles-body'>
-        <Markdown markdownText={markdownText}/>
+      return(<div className='articles-body'>
+        <ArticleEditor /> 
       </div>
-    )
+      )
     }
   }
 
@@ -123,37 +153,4 @@ $$
 \\int_{n}^{m}\\int_{a}^{b} f(x) \\, f(y) dx \\, dy 
 $$`;
 
-const exampleArticles : Articles[] = [
-  {
-    articleID: "1",
-    title: "Article 1", 
-    content: markdownText,
-    category: ["Chemistry", "Organic"],
-    metatags: [], 
-    date: "10/12/2023",
-    createdBy: "Me", 
-    documents: []
-  }, 
-  {
-    articleID: "2",
-    title: "Article 2", 
-    content: markdownText,
-    category: ["Chemistry", "Organic"],
-    metatags: [], 
-    date: "10/12/2023",
-    createdBy: "Me", 
-    documents: []
-  },
-  {
-    articleID: "3",
-    title: "Article 3", 
-    content: markdownText,
-    category: ["Chemistry", "Organic"],
-    metatags: [], 
-    date: "10/12/2023",
-    createdBy: "Me", 
-    documents: []
-  }
 
-
-]

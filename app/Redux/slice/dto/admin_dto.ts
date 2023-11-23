@@ -5,6 +5,7 @@ export interface AdminState{
     loading: boolean,
     error: null | string,
     success: null | string,
-    message: null | string
+    message: null | string,
+  isRootAdmin: boolean,
 
 }

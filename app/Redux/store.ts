@@ -31,5 +31,7 @@ export const store = configureStore({
   middleware: [thunk]
 })
 
+export type RootState = ReturnType<typeof combinedReducer>
+
 export const persistor = persistStore(store); 
 
