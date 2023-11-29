@@ -2,11 +2,10 @@ import type { Metadata } from 'next'
 // import { Inter } from 'next/font/google'
 import './globals.css'
 import Main from '@/Components/Layout/Main'
-import Header from '@/Components/Elements/Header'
-import Footer from '@/Components/Elements/Footer'
 import { AppProvider } from './Redux/AppProvider'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
+import { Footer, Header } from '@/Components/Elements';
 
 // const inter = Inter({ subsets: ['latin'] })
 

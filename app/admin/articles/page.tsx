@@ -1,5 +1,5 @@
 "use client"
-import { CustomInput, Markdown } from '@/Components/Elements';
+import { CustomInput, MarkdownEditor } from '@/Components/Elements';
 import React, { useEffect, useState } from 'react'
 import "./style.css"
 import { ADMIN_ARTICLES_FEATURES } from '@/Utils/Constants';
@@ -14,6 +14,18 @@ export default function Page() {
   const [page, setPage] = useState(ADMIN_ARTICLES_FEATURES[0].name); 
   const [articleID, setArticleID] = useState<string | null>(null);
   const dispatch = useDispatch<any>();
+  const newArticle: Articles = {
+    content: "# Start editing",
+    title: "Untitled",
+    articleID: "",
+    date: "",
+    documents: [],
+    category: [],
+    metatags: [],
+    createdBy: "", 
+  }
+  const [article, setArticle] = useState<Articles>(newArticle);
+
 
   function handleSidebarClick(action: string){
     if(ADMIN_ARTICLES_FEATURES[0].name === action){
@@ -21,6 +33,7 @@ export default function Page() {
     }
     else if( ADMIN_ARTICLES_FEATURES[1].name === action){
       setArticleID(null)
+      setArticle(newArticle)
       setPage(ADMIN_ARTICLES_FEATURES[1].name);
     } else {
       setPage(ADMIN_ARTICLES_FEATURES[0].name);
@@ -74,22 +87,26 @@ export default function Page() {
   }
 
   const ArticleEditor = () => {
-    const [article, setArticle] = useState<Articles>();
-
-    async function editArticle() {
+    async function fetchArticleData() {
       const res = await dispatch(adminGetArticle(articleID));
-      setArticle(res.payload.data);
+      const data: Articles = res.payload.data;
+      return data; 
     }
 
-
-    useEffect(()=>{
-      if(articleID !== null) {
-        editArticle()
+    useEffect( () =>{
+      if( articleID !== null && article.articleID !== articleID) {
+      
+      fetchArticleData().then((data)=> {
+        setArticle(data || newArticle);
+        console.log(article);
+      })
       }
     },[])
 
     return (
-      <Markdown markdownText={article? article.articleID : ""} />
+      <div>
+        <MarkdownEditor article={article}/>
+      </div>
     )
   }
   const Sidebar = () => {
@@ -117,7 +134,6 @@ export default function Page() {
   }
 
   const Body = () => {
-    // console.log(page)
     if( ADMIN_ARTICLES_FEATURES[0].name === page ){
       return <SearchAndEdit />
     }
@@ -137,20 +153,5 @@ export default function Page() {
   )
 }
 
-
-const markdownText = `
-Inline equation: $E=mc^2$
-## SmartyPants
-
-|                |ASCII                            |HTML                         |
-|----------------|---------------------------------|-----------------------------|
-|Single backticks|\`'Isn't this fun?'\`            |'Isn't this fun?'            |
-|Quotes          |\`"Isn't this fun?"\`            |"Isn't this fun?"            |
-|Dashes          |\`-- is en-dash, --- is em-dash\`|-- is en-dash, --- is em-dash|
-
-Display equation:
-$$
-\\int_{n}^{m}\\int_{a}^{b} f(x) \\, f(y) dx \\, dy 
-$$`;
 
 

@@ -1,0 +1,72 @@
+/* Button */
+.button {
+  background-color: var(--foreground); /* Green */
+  border: none;
+  color: var(--background-2);
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Button Danger */
+.button-danger {background-color: #f44336;} /* Red */ 
+
+/* Button Warning */
+.button-warning {background-color: #ff9800;} /* Orange */ 
+
+/* Button Info */
+.button-info {background-color: #2196F3;} /* Blue */
+
+/* Button Success */
+.button-success {background-color: #4CAF50;} /* Green */
+
+/* Button Primary */
+.button-primary {background-color: #008CBA;} /* Blue */
+
+/* Button Secondary */
+.button-secondary {background-color: #e7e7e7; color: black;} /* Gray */ 
+
+/* Button Dark */
+.button-dark {background-color: #555555;} /* Black */ 
+
+/* Button Light */
+.button-light {background-color: #f1f1f1;} /* White */ 
+
+/* Button Disabled */
+.button-disabled {background-color: #cccccc;} /* Gray */ 
+
+/* Button Rounded */
+.button-rounded {border-radius: 50%;}
+
+/* Button Full */
+.button-full {width: 100%;}
+
+/* Button Block */
+.button-block {display: block; width: 100%;}
+
+/* Button Large */
+.button-large {padding: 10px 24px; font-size: 24px;}
+
+/* Button Medium */
+.button-medium {padding: 8px 20px; font-size: 20px;}
+
+/* Button Small */
+.button-small {padding: 5px 16px; font-size: 16px;}
+
+/* Button Extra Small */
+.button-xsmall {padding: 3px 8px; font-size: 12px;}
+
+/* Button Hover */
+.button:hover {opacity: 0.8;}
+
+/* Button Disabled */
+.button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+

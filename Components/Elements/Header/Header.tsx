@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
 import Image from 'next/image'
-import { Button } from '.';
+import { Button } from './../';
 
 export default function Header() {
 
@@ -61,3 +61,4 @@ export default function Header() {
     </nav>
   )
 }
+

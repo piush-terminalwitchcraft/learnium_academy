@@ -1,13 +1,12 @@
 import React from 'react'
 import MarkdownIt from 'markdown-it';
-// import mdKatex from 'markdown-it-katex';
 const mdKatex = require('markdown-it-katex');
 import 'katex/dist/katex.min.css'; // Import Katex CSS
 import ReactHtmlParser from 'react-html-parser';
 import DOMPurify from 'isomorphic-dompurify';
 
 
-export default function Markdown(props:{markdownText: string}) {
+function Markdown(props:{markdownText: string}) {
  
   const md = new MarkdownIt().use(mdKatex); 
   

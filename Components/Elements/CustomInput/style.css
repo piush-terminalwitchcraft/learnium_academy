@@ -1,0 +1,64 @@
+/* CustomInput */
+
+.input {
+
+  border: none;
+  border: 0.8px solid var(--foreground);
+  background: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+/* Input Danger */
+.input-danger {border-color: #f44336;} /* Red */ 
+
+/* Input Warning */
+.input-warning {border-color: #ff9800;} /* Orange */ 
+
+/* Input Info */
+.input-info {border-color: #2196F3;} /* Blue */
+
+/* Input Success */
+.input-success {border-color: #4CAF50;} /* Green */
+
+/* Input Primary */
+.input-primary {background-color: #008CBA;} /* Blue */
+
+/* Input Secondary */
+.input-secondary {background-color: #e7e7e7; color: black;} /* Gray */ 
+
+/* Input Dark */
+.input-dark {background-color: #555555;} /* Black */ 
+
+/* Input Light */
+.input-light {background-color: #f1f1f1;} /* White */ 
+
+/* Input Disabled */
+.input-disabled {background-color: #cccccc;} /* Gray */ 
+
+/* Input Rounded */
+.input-rounded {border-radius: 50%;}
+
+/* Input Full */
+.input-full {width: 100%;}
+
+/* Input Block */
+.input-block {display: block; width: 100%;}
+
+/* Input Large */
+.input-large {padding: 10px 24px; font-size: 24px;}
+
+/* Input Medium */
+.input-medium {padding: 8px 20px; font-size: 20px;}
+
+/* Input Small */
+.input-small {padding: 5px 16px; font-size: 16px;}
+
+/* Input Extra Small */
+.input-xsmall {padding: 3px 8px; font-size: 12px;}
+
+

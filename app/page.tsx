@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import './style.css'
 import { Button, CustomInput } from '@/Components/Elements'
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   return (

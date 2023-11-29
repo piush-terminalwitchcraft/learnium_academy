@@ -1,3 +1,4 @@
+import { ToastOptions } from "react-toastify";
 import { AdminFeature } from "./Types";
 
 export const ADMIN_FEATURES: AdminFeature[] = [
@@ -33,3 +34,14 @@ export const ADMIN_ARTICLES_FEATURES = [
     "image": "/new_document.png"
   }
 ]
+
+export const TOAST_STYLE: ToastOptions = {
+  position: "top-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+}

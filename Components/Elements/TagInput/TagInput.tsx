@@ -1,14 +1,20 @@
 "use client";
 import React, { useState, useRef } from 'react';
 import './style.css';
+interface InputTagProps {
+  tags: string[];
+  onTagsChange: (newTags: string[]) => void;
+}
 
-const InputTag: React.FC = () => {
-  const [tags, setTags] = useState<string[]>(['ahadqureshi@gmail.com']);
+function InputTag (props: InputTagProps) {
+  const [tags, setTags] = useState<string[]>(props.tags);
+  
   const tagInput = useRef<HTMLInputElement>(null);
 
   const removeTag = (i: number) => {
     const newTags = tags.filter((_, index) => index !== i);
     setTags(newTags);
+    props.onTagsChange(newTags);
   };
 
   const inputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -17,6 +23,10 @@ const InputTag: React.FC = () => {
       if (tags.find(tag => tag.toLowerCase() === val.toLowerCase())) {
         return;
       }
+       const newTags = [...tags, val];
+      setTags(newTags);
+      props.onTagsChange(newTags); // Notify the parent component about the change
+
       setTags([...tags, val]);
       if (tagInput.current) {
         tagInput.current.value = '';
@@ -44,3 +54,4 @@ const InputTag: React.FC = () => {
 };
 
 export default InputTag;
+
