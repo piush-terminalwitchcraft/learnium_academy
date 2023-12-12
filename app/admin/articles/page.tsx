@@ -8,7 +8,6 @@ import { Articles } from '@/Utils/Types';
 import { useDispatch } from 'react-redux';
 import { adminGetArticle, adminSearchArticle } from '@/app/Redux/slice';
 
-
 export default function Page() {
 
   const [page, setPage] = useState(ADMIN_ARTICLES_FEATURES[0].name); 
@@ -26,7 +25,6 @@ export default function Page() {
   }
   const [article, setArticle] = useState<Articles>(newArticle);
 
-
   function handleSidebarClick(action: string){
     if(ADMIN_ARTICLES_FEATURES[0].name === action){
       setPage(ADMIN_ARTICLES_FEATURES[0].name); 
@@ -39,7 +37,6 @@ export default function Page() {
       setPage(ADMIN_ARTICLES_FEATURES[0].name);
     }  
   }
-
 
   const SearchAndEdit = () => {
 
@@ -78,7 +75,6 @@ export default function Page() {
               <div className='text'>
                 {article.createdBy}
               </div>
-
             </div>
           })
         }
@@ -95,11 +91,10 @@ export default function Page() {
 
     useEffect( () =>{
       if( articleID !== null && article.articleID !== articleID) {
-      
-      fetchArticleData().then((data)=> {
-        setArticle(data || newArticle);
-        console.log(article);
-      })
+        fetchArticleData().then((data)=> {
+          setArticle(data || newArticle);
+          console.log(article);
+        })
       }
     },[])
 
@@ -126,7 +121,6 @@ export default function Page() {
                 </div>
               </div>
             )
-
           })  
         }
       </div>
@@ -138,9 +132,10 @@ export default function Page() {
       return <SearchAndEdit />
     }
     else {
-      return(<div className='articles-body'>
-        <ArticleEditor /> 
-      </div>
+      return(
+        <div className='articles-body'>
+          <ArticleEditor /> 
+        </div>
       )
     }
   }
@@ -152,6 +147,4 @@ export default function Page() {
     </div>
   )
 }
-
-
 

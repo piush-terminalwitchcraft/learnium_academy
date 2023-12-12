@@ -3,7 +3,6 @@ import { AdminState } from "./dto";
 import axios from "axios";
 import { BASE_URL } from "@/app/utils/constant";
 import { RootState } from "../store";
-import { stat } from "fs";
 
 
 export const adminSlice = createSlice({
@@ -67,7 +66,7 @@ export const adminSlice = createSlice({
 
 export const adminLogin = createAsyncThunk<any, any>(
   'admin/login',
-  async (payload, thunkAPI) => {
+  async (payload, _) => {
     try {
       const res = await axios.post(`${BASE_URL}/admin/auth/signin`, payload)  
       return res.data as {access_token : string}; 
@@ -160,6 +159,103 @@ export const adminSearchArticle = createAsyncThunk<any, any>(
     }
   }
 )
+
+export const adminGetBatches = createAsyncThunk<any, any>(
+  'admin/classroom/get',
+  async (query, thunkAPI) => {
+    try {
+      const res = await axios.get(`${BASE_URL}/admin/classroom/getbatches`,{
+        params: { query: query },
+        headers: {
+          'Authorization': `Bearer ${(thunkAPI.getState() as RootState).admin.authToken}`,
+        }
+      })
+      return res; 
+    } catch (error) {
+      throw error;
+    }
+  }
+)
+
+export const adminGetBatchDetails = createAsyncThunk<any,any>(
+  'admin/classroom/getbatch',
+  async (payload, thunkAPI) => {
+    try {
+      const res = await axios.get(`${BASE_URL}/admin/classroom/getbatchdetails`,{
+        params: {batchID: payload},
+        headers: {
+          'Authorization': `Bearer ${(thunkAPI.getState() as RootState).admin.authToken}`,
+        }
+      })
+    } catch (error) {
+      
+    }
+  }
+)
+
+export const adminAddBatch = createAsyncThunk<any, any>(
+  'admin/classroom/addbatch',
+  async (payload, thunkAPI) => {
+    try {
+      const res = await axios.post(`${BASE_URL}/admin/classroom/addbatch`, payload, {
+        headers: {
+          'Authorization': `Bearer ${(thunkAPI.getState() as RootState).admin.authToken}`,
+        }
+      })
+      return res;
+    } catch (error) {
+      throw error;
+    }
+  }
+)
+
+export const adminRemoveBatch = createAsyncThunk<any, any>(
+  'admin/classroom/remove',
+  async (payload, thunkAPI) => {
+    try {
+      const res = await axios.delete(`${BASE_URL}/admin/classroom/removebatch`,{
+        data: payload,
+        headers: {
+          'Authorization': `Bearer ${(thunkAPI.getState() as RootState).admin.authToken}`,    
+        }
+      }) 
+    } catch (error) {
+      throw error;
+    }
+  }
+)
+
+export const adminAddExamResult = createAsyncThunk<any, any>(
+  'admin/classroom/addexamresult',
+  async (payload, thunkAPI) => {
+
+  }
+)
+
+export const adminAddStudent = createAsyncThunk<any, any>(
+  'admin/classroom/addstudent',
+  async (payload, thunkAPI) => {
+    try {
+       const res = await axios.post(`${BASE_URL}/admin/classroom/addstudent`, payload, {
+        headers: {
+          'Authorization': `Bearer ${(thunkAPI.getState() as RootState).admin.authToken}`,
+        }
+      })
+      return res;
+    } catch (error) {
+      throw error; 
+    }
+   }
+)
+
+export const adminRemoveStudent = createAsyncThunk<any, any>(
+  'admin/classroom/removestudent',
+  async (query, thunkAPI) => {
+
+  }
+)
+
+
 
 export const {initialize ,setError, setLoading, setSuccess} = adminSlice.actions;
 export const adminReducer =  adminSlice.reducer;

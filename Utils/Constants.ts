@@ -1,6 +1,7 @@
 import { ToastOptions } from "react-toastify";
 import { AdminFeature } from "./Types";
 
+export const BASE_URL = 'http://localhost:3333';
 export const ADMIN_FEATURES: AdminFeature[] = [
   {
     "name":"Articles", 

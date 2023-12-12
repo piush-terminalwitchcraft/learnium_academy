@@ -6,7 +6,7 @@
   border-radius: 8px;
   display: flex;
   flex-wrap: wrap;
-  padding: 5px 20px;
+  padding: 5px 10px;
 }
 
 .input-tag input {
@@ -41,7 +41,7 @@
   appearance: none;
   background: var(--background-2);
   border: none;
-  border-radius: 50%;
+  border-radius: 8px;
   color: var(--foreground);
   cursor: pointer;
   display: inline-flex;

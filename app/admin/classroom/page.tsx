@@ -1,23 +1,41 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./style.css"
 import { Batch } from '@/Utils/Types'
 import { Button, CustomInput } from '@/Components/Elements'
 import randomColor from 'randomcolor';
-import { randomInt } from 'crypto';
 import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux'
+import { adminGetBatches, adminRemoveBatch } from '@/app/Redux/slice'
 
 export default function Page() {
   const router = useRouter();
+  const [ batches, setBatches ] = useState<Batch[]>([]);
+  const dispatch = useDispatch<any>();
+
+
+  async function fetchBatches() {
+    const res = await dispatch(adminGetBatches(""));
+    setBatches(res.payload.data as Batch[]);
+  }
+
+  useEffect(()=>{
+    fetchBatches(); 
+  },[])
+
+  useEffect(() => {
+    console.log("Updated Batches:", batches);
+  }, [batches]);
+
   return (
     <div>
       <div className='classroom-header'>
         <CustomInput placeholder='Search batches' type='string'/>
-        <Button onClick={()=>{router.push('/Admin/Classroom/New')}}>Add batches</Button>
+        <Button onClick={()=>{router.push('/admin/classroom/new')}}>Add batches</Button>
       </div>
       <div className='classroom-list'>
         {
-          exampleBatches.map((batch: Batch) => {
+          batches.map((batch: Batch) => {
             var color1 = randomColor({
               luminosity: 'light',
               hue: 'blue'
@@ -41,20 +59,20 @@ export default function Page() {
             return <div 
               style={{backgroundImage: backgroundColor}}
               onClick={()=>{router.push(`/admin/classroom/${batch.batchID}`)}}
-            className='classroom-list-item' key={batch.batchID}>
+              className='classroom-list-item' key={batch.batchID}>
               <div className='top'>
-              <div className='heading'>
-                {batch.batchName}
-              </div>
-              <div className='year'>
-                {batch.academicYear}
-              </div>
-              <div className='course'>
-                {batch.course}
-              </div>
+                <div className='heading'>
+                  {batch.batchName}
+                </div>
+                <div className='year'>
+                  {batch.academicYear}
+                </div>
+                <div className='course'>
+                  {batch.course}
+                </div>
               </div>
               <div className='description'>
-                <div>No of students - {batch.studentsID.length}</div>
+                <div>No of students - {1}</div>
                 <div>No of exams - {3}</div>
               </div>
             </div>
@@ -74,7 +92,7 @@ const exampleBatches: Batch[] = [
     batchName: "NEET 2022-23",
     studentsID: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
   }, {
-    batchID: "3",
+    batchID: "3", 
     academicYear: "2022-23",
     course: "NEET",
     batchName: "NEET2 2022-23",
