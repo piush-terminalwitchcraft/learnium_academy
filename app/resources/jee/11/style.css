@@ -1,0 +1,46 @@
+.main-page {
+  height: 80vh;
+  display: flex;
+}
+
+.topic-list{
+  flex: 2; 
+  overflow-x: scroll;
+}
+
+.topic-list > li {
+  margin: 8px;
+  padding: 4px 0;
+  border-bottom: 0.8px solid var(--foreground);
+}
+
+.resource-list{
+  flex: 8;
+  margin: 8px;
+}
+
+.resource-list > .banner {
+  font-size: 1.4rem;
+}
+@media screen and (max-width: 600px) {
+  
+  .main-page {
+    flex-direction: column;
+    align-items: stretch;
+    height: fit-content;
+  }
+
+  .topic-list {
+    flex: none;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .topic-list > li {
+    display: block;
+    margin: 8px;
+    padding: 4px 0;
+    border-bottom: 0.8px solid var(--foreground);
+  }
+}
+

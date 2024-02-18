@@ -182,11 +182,13 @@ export const adminGetBatchDetails = createAsyncThunk<any,any>(
   async (payload, thunkAPI) => {
     try {
       const res = await axios.get(`${BASE_URL}/admin/classroom/getbatchdetails`,{
-        params: {batchID: payload},
+        params: {batchID: payload.batchID},
         headers: {
           'Authorization': `Bearer ${(thunkAPI.getState() as RootState).admin.authToken}`,
         }
       })
+
+      return res
     } catch (error) {
       
     }

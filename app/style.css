@@ -33,7 +33,7 @@
     /* position: relative; */
 }
 
-.main-course .content {
+.main-course > .content {
     text-align: center;
     width: 60%;
     background-color: var(--background);
@@ -44,24 +44,63 @@
     margin: 12px 0px;
 }
 
-.content .title {
+.content > .title {
     font-size: 2.4rem;
     font-weight: bold;
     margin-bottom: 1.2rem;
 }
 
-.content .item {
+.content  .item {
     font-size: 2rem;
     font-weight: normal;
     margin: 32px 0;
 }
 
-.content .description, .description {
+.content > .description, .description {
     font-size: 1.4rem;
     font-weight: normal;
     font-style: italic;
     margin: 32px 0;
     padding: 0 12px;
+}
+
+.resource-item {
+  position: relative;
+  border: 0.8px solid var(--background);
+  background: var(--background-2);
+  color: var(--background);
+  border-radius: 8px;
+  cursor: pointer;
+
+}
+
+
+
+.resource-item .dropdown {
+  position: absolute; /* Position the dropdown relative to the .resource-item */
+  top: 100%; /* Position it below the heading */
+  left: 0; /* Align it to the left edge of the heading */
+  width: 100%; /* Make it as wide as the heading */
+  background-color: #fff;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  z-index: 1; /* Ensure it appears above other content */
+}
+
+.resource-item:hover {
+  border-radius: 8px 8px 0 0;
+}
+
+.resource-item > .item {
+  margin: 8px;
+}
+
+.dropdown > .description {
+  margin: 8px 0;
+}
+
+.dropdown > .description:hover {
+  background: lightgray;
 }
 
 .main-lsat-form {
@@ -116,7 +155,11 @@
         font-size: 1.4rem;
     }
 
-    .main-course .content {
+    .main-course > .content {
         width: 100%;
+    }
+    
+    .resources{
+        display: block;
     }
 }

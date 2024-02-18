@@ -2,9 +2,11 @@
 import React, {useEffect, useState} from 'react'
 import "./style.css"
 import { useDispatch } from 'react-redux'
-import { adminGetBatchDetails, adminRemoveBatch } from '@/app/Redux/slice'
+import { adminAddStudent, adminGetBatchDetails, adminRemoveBatch } from '@/app/Redux/slice'
 import { toast } from 'react-toastify'
 import Image from 'next/image'
+import { BatchDetails } from '@/Utils/Types'
+import { Button, CustomInput } from '@/Components/Elements'
 
 const FEATURES = [
   {
@@ -28,12 +30,22 @@ function Page({params}: {params: {batchID: string}}) {
   // all variables, states 
   const {batchID} = params;
   const dispatch = useDispatch<any>();
-  const [page, setPage] = useState(FEATURES[0].name); 
+  const [page, setPage] = useState(FEATURES[1].name); 
+  const [batchDetails, setBatchDetails] = useState<BatchDetails|undefined>();
 
    // all api calls   
   async function fetchDetails(){
     const res = await dispatch(adminGetBatchDetails({batchID})); 
+    console.log(res)
+    setBatchDetails(res.payload.data);
     return res.payload.data;
+  }
+
+  async function addStudent(payload: any){
+    const res = await dispatch(adminAddStudent(payload))
+    await fetchDetails();
+    console.log(res);
+    return res;
   }
 
   async function removeBatch(batchID: string) {
@@ -90,18 +102,120 @@ function Page({params}: {params: {batchID: string}}) {
       </div>
     )
   }
+  
+  const Overview = () => {
 
-  const Body = () => {
-
-    return <div className='batch-body' ></div>
+    return (
+      <></>
+    )
   }
 
+  const ManageStudents = () => {
+
+    useEffect(()=>{},[batchDetails])
+    const [email, setEmail] = useState<string>('');    
+
+    return (
+      <div>
+        <CustomInput type='email' placeholder='Enter email address to add students'
+          className='batch-students-input'
+          value={`${email}`}
+          style={{'width': "60vw"}}
+          onChange={(e)=>setEmail(e.target.value)} 
+          onKeyDown={(e)=>{
+            console.log(email)
+            if(e.key === 'Enter'){ 
+              addStudent({
+                batchID: batchDetails?.batchdetails.batchID,
+                userEmail: email
+              }) 
+            }
+          }} 
+
+        />
+        <ul>
+          {batchDetails?.batchdetails.studentsID.map((student)=> {
+            return(
+              <li key={student.userID}
+              className='flex' style={{"width":"95%","margin":"16px", "padding":"4px"}}>
+                <div style={{"flex":"2"}}>{student.userName}</div>
+                <div style={{"flex":"2"}}>{student.userEmail} </div>
+                <Button style={{"flex":"1"}}>Remove from batch</Button>
+
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    )
+  }
+
+  const ManageExams = () => {
+
+    useEffect(()=>{},[batchDetails])
+
+    const [examID, setExamID] = useState<string|null>(null);
+    return (
+      <>
+        {/* See all exams */} 
+        {
+          examID? 
+            <div>E1</div>
+          : 
+            <div>
+              {batchDetails?.exams.map((exam)=>{
+                return (
+                  <div key={exam.examName}>
+
+                  </div>
+                )
+              })} 
+            </div>
+        }
+      </>
+    )
+  }
+
+  const Body = () => {
+    const PageBody = () => {
+      if(page === FEATURES[0].name){
+        return (
+          <div>
+            {FEATURES[0].name}
+            <Overview/>
+          </div>
+        ) 
+      } else if(page === FEATURES[1].name) {
+        return (
+          <ManageStudents/>
+        ) 
+      } else {
+        return (
+          <div>
+            <ManageExams/>
+          </div>
+        ) 
+      }
+    }
+    return (
+      <div className='batch-body' >
+        <PageBody />
+      </div>
+    );
+  }
+
+  
+  useEffect(()=>{
+    fetchDetails(); 
+  },[])
+
+  useEffect(()=>{
+  },[batchDetails])
 
   return (
     <div className='batch'>
-       <Sidebar />
+      <Sidebar />
       <Body />
-
     </div>
   )
 }

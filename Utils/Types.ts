@@ -1,3 +1,5 @@
+import Page from "@/app/admin/articles/page"
+
 export interface Admin {
   adminID: string, 
   adminName: string, 
@@ -51,14 +53,26 @@ export interface User {
   batchID? : string[],  
 }
 
-
-
-
-
 export interface AdminFeature {
   name: string, 
   image: string,
   link: string,
 } 
 
+export interface Exams {
+  examName: string, 
+  examDate: string, 
+  count? : string
+}
+
+export interface BatchDetails {
+  batchdetails: {
+    batchID: string, 
+    academicYear: string, 
+    course: string, 
+    batchName: string
+    studentsID: User[]
+  },
+  exams: Exams[] 
+}
 

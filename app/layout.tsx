@@ -6,7 +6,9 @@ import { AppProvider } from './Redux/AppProvider'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
 import { Footer, Header } from '@/Components/Elements';
-
+// Import the styles provided by the react-pdf-viewer packages
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 // const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

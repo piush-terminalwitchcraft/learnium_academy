@@ -33,9 +33,11 @@ export default function Header() {
       <div id='header-mobile' onClick={()=>{setIsOpen(!isOpen)}}>
         {
           isOpen ?
-            <div><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#64ccc5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 4L20 20M20 4L4 20" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></div>
+            <div>
+              <Image src={'/isOpen.svg'} width={32} height={32} style={{"marginTop":"8px"}} alt='is open?'/>
+            </div>
             :
-            <div><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#64ccc5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 10H21M3 14H21M3 18H21M3 6H21" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></div> 
+            <div><Image src={'/isClosed.svg'} width={48} height={48} alt='is close?' /></div> 
         }
       </div>
       <div>
