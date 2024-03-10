@@ -10,6 +10,7 @@ interface DropdownProps {
   defaultValue?: string;
   onChange?: (value: string) => void;
   placeholder?: string;
+  style?: React.CSSProperties | undefined;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -17,6 +18,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   defaultValue = '',
   onChange,
   placeholder,
+  style
 }) => {
   const [selectedValue, setSelectedValue] = useState<string>(defaultValue);
 
@@ -33,6 +35,16 @@ const Dropdown: React.FC<DropdownProps> = ({
     <select
       value={selectedValue}
       onChange={handleSelectChange}
+      style={
+        {padding: '8px',
+        fontSize: '1.4rem',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        width: '90%',
+        marginLeft: '5%',
+        backgroundColor: '#fff',
+        color: '#333', ...style}
+      }
     >
       {placeholder && (
         <option value="" disabled>

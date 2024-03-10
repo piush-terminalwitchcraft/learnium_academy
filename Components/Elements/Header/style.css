@@ -15,6 +15,10 @@
   padding: 12px;
 }
 
+.login-btn {
+  margin-left: 60px;
+}
+
 #header-list {
   list-style: none;
   padding: 0;
@@ -91,6 +95,10 @@
     width: 48px;
     cursor: pointer;
   }
+
+  /* .login-btn { */
+  /*   margin-left: 20px; */
+  /* } */
 }
 
 

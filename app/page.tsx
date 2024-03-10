@@ -13,13 +13,18 @@ export default function Home() {
   const JEEResources = () => {
     const [visible, setIsVisible] = useState<number | null>(null);
 
+    function toggleDropdown(state: number| null) {
+      if(visible === state) { setIsVisible(null) }
+      else { setIsVisible(state) }
+      
+    }
     return (
       <div className='resources flex justify-evenly'>
         <div className='resource-item'
           onMouseOver={()=> setIsVisible(1)} 
           onMouseOut={()=>setIsVisible(null)}
         >
-          <div className='item'> Foundational (5-10) </div>
+          <div className='item' onClick={()=>toggleDropdown(1)}> Foundational (5-10) </div>
           {
           visible === 1 && (
             <div className='dropdown'>
@@ -34,7 +39,7 @@ export default function Home() {
           onMouseOver={()=> setIsVisible(2)} 
           onMouseOut={()=>setIsVisible(null)}
         >
-          <div className='item'> 11th standard</div>
+          <div className='item' onClick={()=>toggleDropdown(2)}> 11th standard</div>
           {
           visible === 2 && (
             <div className='dropdown'>
@@ -46,11 +51,11 @@ export default function Home() {
         }
         </div>
 
-          <div className='resource-item'
+        <div className='resource-item'
           onMouseOver={()=> setIsVisible(3)} 
           onMouseOut={()=>setIsVisible(null)}
         >
-          <div className='item'> 12th standard </div>
+          <div className='item' onClick={()=>toggleDropdown(3)}> 12th standard </div>
           {
           visible === 3 && (
             <div className='dropdown'>
@@ -67,6 +72,11 @@ export default function Home() {
   }
   const NEETResources = () => {
     const [visible, setIsVisible] = useState<number | null>(null);
+    function toggleDropdown(state: number| null) {
+      if(visible === state) { setIsVisible(null) }
+      else { setIsVisible(state) }
+
+    }
 
     return (
       <div className='resources flex justify-evenly'>
@@ -74,7 +84,7 @@ export default function Home() {
           onMouseOver={()=> setIsVisible(1)} 
           onMouseOut={()=>setIsVisible(null)}
         >
-          <div className='item'> Foundational (5-10) </div>
+          <div className='item' onClick={()=>toggleDropdown(1)}> Foundational (5-10) </div>
           {
           visible === 1 && (
             <div className='dropdown'>
@@ -89,7 +99,7 @@ export default function Home() {
           onMouseOver={()=> setIsVisible(2)} 
           onMouseOut={()=>setIsVisible(null)}
         >
-          <div className='item'> 11th standard</div>
+          <div className='item' onClick={()=>toggleDropdown(2)}> 11th standard</div>
           {
           visible === 2 && (
             <div className='dropdown'>
@@ -105,7 +115,7 @@ export default function Home() {
           onMouseOver={()=> setIsVisible(3)} 
           onMouseOut={()=>setIsVisible(null)}
         >
-          <div className='item'> 12th standard </div>
+          <div className='item' onClick={()=>toggleDropdown(3)}> 12th standard </div>
           {
           visible === 3 && (
             <div className='dropdown'>
@@ -131,7 +141,7 @@ export default function Home() {
           </div>
           <div className='main-counselling-form'>
             <div>Attend free counselling now </div>
-            <div className='flex justify-start'>
+            <div className='flex justify-start' >
 
               <CustomInput type='tel' placeholder='Enter phone number ' style={{ "height": "48px", width: "90%" }} />
               <Button style={{ "height": "48px", "margin": "0 8px" }}>
